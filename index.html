@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maureen Sangalang</title>
+
+<style>
+     * {
+      box-sizing: border-box;
+    }
+
+    body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #7fffd4, #20b2aa);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #004d40;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 10px 0; /* Padding for the navbar */
+            position: absolute; /* Position it at the top */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            display: flex; /* Use flexbox for horizontal layout */
+            justify-content: center; /* Center the items */
+            gap: 20px; /* Space between items */
+            z-index: 1; /* Ensure it appears above other content */
+        }
+
+    .navbar a {
+            text-decoration: none; /* Remove underline from links */
+            color: #004d40; /* Text color */
+            font-weight: bold; /* Bold text */
+            font-size: 1.2rem; /* Font size */
+            position: relative; /* Position for pseudo-element */
+            overflow: hidden; /* Hide overflow for animation */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+
+    .navbar a::after {
+            content: ''; /* Create a pseudo-element */
+            position: absolute; /* Position it absolutely */
+            left: 50%; /* Center it horizontally */
+            bottom: 0; /* Align to the bottom */
+            width: 100%; /* Full width */
+            height: 2px; /* Height of the underline */
+            background-color: #004d40; /* Color of the underline */
+            transform: translateX(-50%) scaleX(0); /* Start with scale 0 */
+            transition: transform 0.3s ease; /* Smooth transition for the underline */
+        }
+
+        .navbar a:hover {
+            color: #007f7f; /* Change text color on hover */
+        }
+        .navbar a:hover::after {
+            transform: translateX(-50%) scaleX(1); /* Scale to full width on hover */
+        }
+
+        .content {
+            padding: 20px; /* Add some padding */
+            border-radius: 10px; /* Optional: round the corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: add shadow */
+        }
+
+
+    h1 {
+            margin: 0 0 0.3em 0;
+            font-size: 3rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+        }
+
+    p {
+            font-size: 1.3rem;
+            max-width: 320px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0 0 8px 0;
+            color: white; /* Change text color for better contrast */
+        }
+    
+    @media (max-width: 400px) {
+            h1 {
+                font-size: 2.5rem; /* Adjust font size for smaller screens */
+            }
+            p {
+                font-size: 1.1rem;
+                max-width: 280px;
+            }
+        }
+
+
+</style>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#family">Family</a>
+        <a href="#friends">Friends</a>
+        <a href="#church">Church</a>
+        <a href="#school">School</a>
+    </div>
+
+    <div class="content" id="content">
+        <h1 id="header">Welcome!</h1>
+        <p id="paragraph">This is my Website for my Love one's.</p>
+    </div>
+
+    <script>
+        const body = document.body;
+        const content = document.getElementById('content');
+        const header = document.getElementById('header');
+        const paragraph = document.getElementById('paragraph');
+
+           // Save original texts
+        const originalHeaderText = header.textContent;
+        const originalParagraphText = paragraph.textContent;
+
+        function changeText() {
+        header.textContent = 'Thank you for visiting this site!';
+        paragraph.textContent = '';
+    }
+        function restoreText() {
+        header.textContent = originalHeaderText;
+        paragraph.textContent = originalParagraphText;
+    }
+
+        // Add event listeners to body and content div for mouse enter and leave
+        body.addEventListener('mouseenter', changeText);
+        body.addEventListener('mouseleave', restoreText);
+        // Also for the content box to catch cases when mouse is on the content
+        content.addEventListener('mouseenter', changeText);
+        content.addEventListener('mouseleave', restoreText);
+  </script>
+</body>
+</html>
